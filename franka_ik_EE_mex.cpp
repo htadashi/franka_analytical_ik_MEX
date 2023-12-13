@@ -38,12 +38,12 @@ public:
             q_actual_array[i] = q_actual_array_MAT[i];
         }
         
-        std::array<std::array<double, 7>, 4> IK = franka_IK_EE(O_T_EE_array, q7, q_actual_array);
+        auto IK = franka_IK_EE(O_T_EE_array, q7, q_actual_array);
 
         matlab::data::ArrayFactory factory;        
-        matlab::data::TypedArray<double> result = factory.createArray<double>({7, 4});
-        for(int i = 0; i < 7; i++){
-            for(int j = 0; j < 4; j++){
+        matlab::data::TypedArray<double> result = factory.createArray<double>({4, 7});
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 7; j++){
                 result[i][j] = IK[i][j];
             }
         }
