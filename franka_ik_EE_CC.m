@@ -9,7 +9,7 @@
 % q_actual_array is the actual joint configuration. At singularity, the actual angle of the first joint will be assigned to the final output.
 % 
 % Original C++ code by Yanhao He, February 2020 (https://github.com/ffall007/franka_analytical_ik)
-% Wrapper by Hugo Tadashi, November 2023
+% Wrapper by Hugo Tadashi and Martin Schonger, November 2023
 function IK = franka_ik_EE_CC(O_T_EE_array, q7, q_actual_array)
     arguments
         O_T_EE_array (1,16) {mustBeNumeric}
